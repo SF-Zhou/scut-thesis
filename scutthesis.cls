@@ -391,7 +391,7 @@
 \renewcommand{\maketitle}{% called outside
   \ifpdfcover
 %%coverpage from pdf file
-        \includepdf[pages=-]{thesis_cover.pdf}%pdf文件路径为主文件tex或lyx的当前目录
+        \includepdf[pages=-]{cover/cover.pdf}%pdf文件路径为主文件tex或lyx的当前目录
    \else
 %%buildin coverpage
 \begin{titlepage}
