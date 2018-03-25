@@ -1,0 +1,10 @@
+dependencies:
+    pre:
+        - sudo apt-get install texlive-xetex texlive-bibtex-extra
+
+test:
+    pre:
+        - make
+
+    post:
+        - cp build/scutthesis.pdf $CIRCLE_ARTIFACTS/scutthesis.pdf
