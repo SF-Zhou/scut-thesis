@@ -17,4 +17,4 @@ brew cask install mactex
 
 1. write in `scutthesis.tex`
 2. execute `make`
-3. check `scutthesis.pdf`
+3. check `build/scutthesis.pdf`

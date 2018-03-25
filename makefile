@@ -1,33 +1,29 @@
 DOC=scutthesis
-DEPS=
+DEPS=$(wildcard $(DOC).*) cover figure
 LATEX=xelatex
 BIBTEX=bibtex
 BIBAUX=$(DOC).aux
 BIBS=$(BIBAUX:.aux=.bbl)
+BUILD=build
+SOFT_LINKS=$(DEPS:%=$(BUILD)/%)
+ROOT_DIR=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 
-%.bbl: %.aux
-	$(BIBTEX) $*
+all: $(BUILD)/$(DOC).pdf
 
-all: $(DOC).pdf
+$(BUILD)/$(DOC).pdf: $(DEPS) soft-link
+	cd $(BUILD) && $(LATEX) $(DOC).tex
+	cd $(BUILD) && $(BIBTEX) $(DOC)
+	cd $(BUILD) && $(LATEX) $(DOC).tex
+	cd $(BUILD) && $(LATEX) $(DOC).tex
 
-$(DOC).aux: $(DOC).tex $(DEPS)
-	$(LATEX) $(DOC).tex
+soft-link: $(BUILD) $(SOFT_LINKS)
 
-$(DOC).pdf: $(DOC).aux $(BIBS)
-	$(LATEX) $(DOC).tex
-	$(LATEX) $(DOC).tex
+$(BUILD):
+	mkdir -p $(BUILD)
+
+$(BUILD)/%:
+	cd $(BUILD) && ln -s $(ROOT_DIR)$* .
 
 clean:
-	- rm *.out
-	- rm $(DOC).pdf
-	- rm *.aux
-	- rm *~
-	- rm *.bbl
-	- rm *.blg
-	- rm *.log
-	- rm *.bak
-	- rm *.idx
-	- rm *.lof
-	- rm *.lot
-	- rm *.toc
+	- rm -rf build/*
