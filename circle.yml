@@ -1,6 +1,6 @@
 dependencies:
     pre:
-        - sudo apt-get install texlive-xetex texlive-bibtex-extra
+        - sudo apt-get install texlive-full
 
 test:
     pre:
