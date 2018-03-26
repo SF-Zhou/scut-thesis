@@ -1,0 +1,17 @@
+general:
+    branches:
+        ignore:
+            - gh-pages
+
+dependencies:
+    pre:
+        - sudo apt-get install texlive-fonts-recommended texlive-lang-cjk texlive-science texlive-xetex
+        - wget https://sf-zhou.github.io/scutthesis/fonts.zip
+        - mkdir -p ~/.fonts && unzip fonts.zip -d ~/.fonts
+
+test:
+    pre:
+        - make
+
+    post:
+        - cp build/scutthesis.pdf $CIRCLE_ARTIFACTS/scutthesis.pdf
