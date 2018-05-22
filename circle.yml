@@ -8,6 +8,7 @@ dependencies:
         - sudo apt-get install texlive-fonts-recommended texlive-lang-cjk texlive-science texlive-xetex
         - wget https://sf-zhou.github.io/scutthesis/fonts.zip
         - mkdir -p ~/.fonts && unzip fonts.zip -d ~/.fonts
+        - go get github.com/tcnksm/ghr
 
 test:
     pre:
