@@ -15,3 +15,9 @@ test:
 
     post:
         - cp build/scutthesis.pdf $CIRCLE_ARTIFACTS/scutthesis.pdf
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` build/scutthesis.pdf
