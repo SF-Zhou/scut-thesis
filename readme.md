@@ -1,6 +1,6 @@
 # LaTeX Template of SCUT Thesis
 
-[![CircleCI](https://circleci.com/gh/SF-Zhou/scutthesis/tree/master.svg?style=svg)](https://circleci.com/gh/SF-Zhou/scutthesis/tree/master)
+[![CircleCI](https://circleci.com/gh/SF-Zhou/scut-thesis.svg?style=svg)](https://circleci.com/gh/SF-Zhou/scut-thesis)
 
 > Forked from [alwintsui/scutthesis](https://github.com/alwintsui/scutthesis)
 
